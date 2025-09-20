@@ -1,0 +1,12 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("weatherHistory.csv")
+
+precip_counts = df['Precip Type'].value_counts()
+
+plt.figure(figsize=(8, 8))
+plt.pie(precip_counts, labels=precip_counts.index, autopct='%1.1f%%', startangle=90, colors=['skyblue', 'lightcoral'])
+plt.title('Distribution of Precipitation Types')
+plt.tight_layout()
+plt.show()
