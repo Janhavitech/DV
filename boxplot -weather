@@ -1,0 +1,12 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("weatherHistory.csv")
+
+plt.figure(figsize=(8, 6))
+plt.boxplot(df['Temperature (C)'], vert=False, patch_artist=True, boxprops=dict(facecolor='lightgreen', color='black'))
+plt.title('Box Plot of Temperature')
+plt.xlabel('Temperature (°C)')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
