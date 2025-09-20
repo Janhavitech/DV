@@ -1,0 +1,12 @@
+import seaborn as sns
+
+corr = df[['Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)']].corr()
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+plt.title('Correlation Heatmap of Weather Parameters')
+plt.tight_layout()
+plt.show() 
+
+  
+  
