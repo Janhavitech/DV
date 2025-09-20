@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("employee_data.csv")
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='Department', y='Salary', data=df, palette='Set2')
+plt.title('Salary Distribution by Department')
+plt.xlabel('Department')
+plt.ylabel('Salary')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
