@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("employee_data.csv")
+
+plt.figure(figsize=(8, 6))
+plt.scatter(df['Age'], df['Salary'], alpha=0.6, color='tab:green')
+plt.title('Age vs. Salary')
+plt.xlabel('Age')
+plt.ylabel('Salary')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
