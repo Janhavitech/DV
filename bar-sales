@@ -1,0 +1,22 @@
+# If you don't already have matplotlib or pandas installed, uncomment and run:
+# !pip install pandas matplotlib
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("sales.csv")
+
+df.head()
+product_sales = df.groupby("Product")["Sales"].sum().reset_index()
+
+product_sales
+plt.figure(figsize=(10,6))
+plt.bar(product_sales["Product"], product_sales["Sales"], color="skyblue", edgecolor="black")
+
+plt.title("Sales of Different Products", fontsize=16, fontweight="bold")
+plt.xlabel("Products", fontsize=12)
+plt.ylabel("Total Sales", fontsize=12)
+plt.xticks(rotation=45, ha="right")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
