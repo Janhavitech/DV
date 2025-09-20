@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("sales.csv")
+df.head()
+product_sales = df.groupby("Product")["Sales"].sum().reset_index()
+
+product_sales
+
+plt.figure(figsize=(8,8))
+plt.pie(product_sales["Sales"], 
+        labels=product_sales["Product"], 
+        autopct="%1.1f%%", 
+        startangle=140, 
+        colors=plt.cm.Paired.colors)
+
+plt.title("Sales Distribution by Product", fontsize=16, fontweight="bold")
+plt.legend(product_sales["Product"], title="Products", loc="best", bbox_to_anchor=(1,0.5))
+
+plt.show()
