@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("weatherHistory.csv")
+
+df['Formatted Date'] = pd.to_datetime(df['Formatted Date'])
+
+plt.figure(figsize=(10, 6))
+plt.plot(df['Formatted Date'], df['Temperature (C)'], label='Temperature (°C)', color='tab:red')
+plt.title('Temperature Over Time')
+plt.xlabel('Date')
+plt.ylabel('Temperature (°C)')
+plt.legend()
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
